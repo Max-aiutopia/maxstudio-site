@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAXSTUDIO｜睿趣數位行銷工作室 · 電商廣告素材與 AI 影音產線</title>
+<meta name="description" content="MAXSTUDIO（睿趣數位行銷工作室，台中）：為電商品牌做廣告素材、產品圖與社群影片，用 AI 產線生產、用投放數字驗證。AI creative studio for e-commerce ads, Taichung, Taiwan.">
+<meta property="og:title" content="MAXSTUDIO — AI creative studio for e-commerce ads">
+<meta property="og:description" content="Ad creative, product imagery and social video for e-commerce brands. Built with an AI pipeline, judged by ad performance. Taichung, Taiwan.">
+<meta property="og:image" content="covers/iphone.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Geist:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F2F1;--paper-2:#FAFAF8;--ink:#0C0C0C;--ink-2:#3A3A38;--mute:#62625F;--rule:rgba(12,12,12,.22);
+  --serif-en:"Bodoni Moda",Georgia,serif;--serif-zh:"Noto Serif TC","Bodoni Moda",serif;
+  --sans:"Geist","Noto Sans TC",system-ui,-apple-system,sans-serif;
+  --maxw:1120px;--gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.075;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+html[data-lang="en"] .zh{display:none!important}
+html[data-lang="zh"] .en{display:none!important}
+html[data-lang="en"]{font-feature-settings:"ss01"}
+
+/* 頂列 */
+.top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:center;align-items:center;gap:28px;padding:14px var(--gutter);background:linear-gradient(var(--paper) 70%,rgba(242,242,241,0))}
+.top .mark{display:flex;align-items:center;height:14px}
+.top .mark svg{height:12px;width:auto;color:var(--ink)}
+.tabs{display:flex;gap:18px;font-size:12.5px;letter-spacing:.04em}
+.tabs a{position:relative;padding:4px 0;color:var(--ink-2)}
+.tabs a.on{color:var(--ink)}
+.tabs a.on::after{content:"";position:absolute;left:50%;bottom:-6px;width:4px;height:4px;border-radius:50%;background:var(--ink);transform:translateX(-50%)}
+.lang{display:flex;gap:10px;font-size:12px;color:var(--mute);margin-left:8px}
+.lang button{all:unset;cursor:pointer;padding:2px 0;color:var(--mute)}
+.lang button.on{color:var(--ink);border-bottom:1px solid var(--ink)}
+
+/* 舞台 */
+.stage{position:relative;z-index:1;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:84px var(--gutter) 28px}
+.credit{max-width:420px}
+.credit h1{margin:0 0 10px;font:400 clamp(34px,4.6vw,56px)/1 var(--serif-en);letter-spacing:.01em;text-transform:uppercase}
+.credit h1 .zh{font-family:var(--serif-zh);font-weight:300;text-transform:none;letter-spacing:0;font-size:.82em}
+.credit .sub{color:var(--mute);font-size:13.5px;margin:0 0 18px}
+.ctable{border-top:1px solid var(--ink);font-size:13px}
+.ctable div{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule)}
+.ctable div:last-child{border-bottom:0}
+.ctable b{font-weight:500;font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;padding-top:3px}
+
+.rail{position:relative;margin:28px calc(-1*var(--gutter)) 0;}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px calc(50vw - 110px) 18px;scrollbar-width:none;perspective:1200px}
+.strip::-webkit-scrollbar{display:none}
+.poster{flex:0 0 220px;scroll-snap-align:center;transition:transform .25s,opacity .25s;transform-origin:center;will-change:transform;opacity:.45}
+.poster img{display:block;width:220px;height:391px;object-fit:cover;background:#111}
+.poster figcaption{margin:8px 0 0;font-size:11.5px;color:var(--mute);text-align:center;min-height:1.6em}
+.poster.is-center{opacity:1}
+.railctl{display:flex;justify-content:center;gap:18px;align-items:center;font-size:12px;color:var(--mute);margin-top:4px}
+.railctl button{all:unset;cursor:pointer;padding:6px 10px;border:1px solid var(--rule);color:var(--ink);font-size:12px}
+.railctl button:hover{border-color:var(--ink)}
+.quote{text-align:center;margin:26px auto 0;max-width:34em}
+.quote p{margin:0;font:300 clamp(19px,2.2vw,26px)/1.45 var(--serif-zh)}
+.quote .en p{font-family:var(--serif-en);font-weight:400;font-size:clamp(20px,2.3vw,27px)}
+.quote small{display:block;margin-top:10px;font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+
+/* 內文 */
+main{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter) 80px}
+section.ch{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:56px 0 8px;border-top:1px solid var(--ink)}
+section.ch .no{font:500 13px/1 var(--sans);color:var(--mute);padding-top:14px}
+section.ch h2{margin:0 0 18px;font:300 clamp(26px,3.2vw,38px)/1.25 var(--serif-zh)}
+section.ch h2 .en{font-family:var(--serif-en);font-weight:400}
+section.ch p{max-width:38em;margin:0 0 14px;color:var(--ink-2)}
+.list{border-top:1px solid var(--ink);margin-top:6px}
+.list .row{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.list .row:last-child{border-bottom:1px solid var(--ink)}
+.list .row h3{margin:0;font:400 17px/1.3 var(--serif-zh)}
+.list .row h3 .en{font-family:var(--serif-en);font-size:18px}
+.list .row p{margin:0;max-width:40em;color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+th{font-weight:500;font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;text-align:left;padding:0 0 8px;border-bottom:1px solid var(--ink)}
+td{padding:11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:1px solid var(--ink)}
+td.num{font-weight:500;white-space:nowrap}
+.note{font-size:12.5px;color:var(--mute);max-width:44em;margin-top:12px}
+.steps{counter-reset:s;border-top:1px solid var(--ink)}
+.steps .row{display:grid;grid-template-columns:40px minmax(120px,180px) 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.steps .row:last-child{border-bottom:1px solid var(--ink)}
+.steps .row::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:500 12px/1.8 var(--sans);color:var(--mute)}
+.steps h3{margin:0;font:500 14px/1.6 var(--sans)}
+.steps p{margin:0;color:var(--ink-2);max-width:40em}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 24px;border-top:1px solid var(--ink)}
+.contact div{padding:14px 0;border-bottom:1px solid var(--rule)}
+.contact b{display:block;font-weight:500;font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;margin-bottom:4px}
+.contact a:hover{text-decoration:underline;text-underline-offset:3px}
+footer{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:24px var(--gutter) 40px;font-size:12px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 24px;border-top:1px solid var(--rule)}
+
+@media (max-width:860px){
+  .top{gap:14px;padding:12px 16px}
+  .tabs{display:none}
+  .stage{padding-top:70px}
+  .credit{max-width:none}
+  .rail{margin-top:22px}
+  .strip{padding:10px calc(50vw - 95px) 14px;gap:12px}
+  .poster{flex-basis:190px}
+  .poster img{width:190px;height:338px}
+  section.ch{grid-template-columns:1fr;gap:4px;padding-top:40px}
+  section.ch .no{padding-top:0}
+  .list .row{grid-template-columns:1fr;gap:6px}
+  .steps .row{grid-template-columns:32px 1fr;}
+  .steps .row h3{grid-column:2}
+  .steps .row p{grid-column:2}
+  .scroll{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="site">
+  <a class="mark" href="#top" aria-label="MAXSTUDIO">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -18.59 215.6 20.90" role="img" aria-label="MAXSTUDIO"><circle cx="6" cy="-8.14" r="6" fill="#FF5A1F"/><g fill="currentColor"><path transform="translate(28.00 0) scale(0.02200 -0.02200)" d="M91 0V741H255L381 393Q393 360 404.0 323.5Q415 287 426 252H431Q443 287 454.0 323.5Q465 360 475 393L599 741H763V0H628V309Q628 345 631.0 388.0Q634 431 638.5 474.5Q643 518 647 552H643L582 378L468 67H383L268 378L209 552H205Q209 518 213.0 474.5Q217 431 220.5 388.0Q224 345 224 309V0Z"/><path transform="translate(53.81 0) scale(0.02200 -0.02200)" d="M-4 0 233 741H408L645 0H489L384 386Q367 444 351.5 506.5Q336 569 319 628H315Q301 568 284.5 506.0Q268 444 252 386L146 0ZM143 190V305H495V190Z"/><path transform="translate(74.95 0) scale(0.02200 -0.02200)" d="M15 0 222 381 26 741H191L265 587Q278 562 291.0 533.5Q304 505 320 471H324Q338 505 350.0 533.5Q362 562 374 587L444 741H600L405 375L613 0H449L366 164Q353 192 338.5 222.0Q324 252 308 286H304Q290 252 277.0 222.0Q264 192 250 164L171 0Z"/><path transform="translate(95.78 0) scale(0.02200 -0.02200)" d="M312 -14Q238 -14 167.0 14.0Q96 42 42 94L127 196Q166 159 216.5 136.5Q267 114 315 114Q373 114 403.0 137.0Q433 160 433 199Q433 227 418.5 243.5Q404 260 379.0 273.0Q354 286 321 299L223 342Q186 357 151.5 382.5Q117 408 94.5 447.0Q72 486 72 540Q72 601 105.0 649.0Q138 697 196.0 725.5Q254 754 328 754Q394 754 455.0 729.0Q516 704 561 658L486 566Q451 595 413.0 611.0Q375 627 328 627Q280 627 251.5 606.5Q223 586 223 549Q223 523 239.0 506.0Q255 489 281.0 476.5Q307 464 338 451L435 412Q480 394 513.5 367.0Q547 340 565.5 302.0Q584 264 584 210Q584 150 551.5 99.0Q519 48 458.5 17.0Q398 -14 312 -14Z"/><path transform="translate(116.55 0) scale(0.02200 -0.02200)" d="M238 0V617H30V741H595V617H386V0Z"/><path transform="translate(137.34 0) scale(0.02200 -0.02200)" d="M376 -14Q307 -14 254.0 5.5Q201 25 163.5 67.0Q126 109 107.0 175.0Q88 241 88 333V741H235V320Q235 243 252.0 198.0Q269 153 300.5 133.5Q332 114 376 114Q420 114 452.0 133.5Q484 153 501.5 198.0Q519 243 519 320V741H661V333Q661 241 642.0 175.0Q623 109 586.0 67.0Q549 25 496.0 5.5Q443 -14 376 -14Z"/><path transform="translate(160.84 0) scale(0.02200 -0.02200)" d="M91 0V741H294Q408 741 489.5 701.0Q571 661 615.5 580.0Q660 499 660 374Q660 249 616.0 166.0Q572 83 492.0 41.5Q412 0 302 0ZM239 120H284Q354 120 404.5 145.5Q455 171 482.0 227.5Q509 284 509 374Q509 464 482.0 518.5Q455 573 404.5 597.5Q354 622 284 622H239Z"/><path transform="translate(183.58 0) scale(0.02200 -0.02200)" d="M91 0V741H239V0Z"/><path transform="translate(197.88 0) scale(0.02200 -0.02200)" d="M385 -14Q287 -14 212.5 32.5Q138 79 96.0 166.0Q54 253 54 374Q54 494 96.0 579.0Q138 664 212.5 709.0Q287 754 385 754Q484 754 558.0 708.5Q632 663 674.0 578.5Q716 494 716 374Q716 253 674.0 166.0Q632 79 558.0 32.5Q484 -14 385 -14ZM385 114Q440 114 480.5 146.0Q521 178 543.0 236.5Q565 295 565 374Q565 453 543.0 509.5Q521 566 480.5 596.5Q440 627 385 627Q330 627 289.5 596.5Q249 566 227.5 509.5Q206 453 206 374Q206 295 227.5 236.5Q249 178 289.5 146.0Q330 114 385 114Z"/></g></svg>
+  </a>
+  <div class="tabs">
+    <a href="#services"><span class="zh">服務</span><span class="en">Services</span></a>
+    <a href="#results"><span class="zh">數字</span><span class="en">Results</span></a>
+    <a href="#process"><span class="zh">怎麼合作</span><span class="en">How we work</span></a>
+    <a href="#about"><span class="zh">關於</span><span class="en">About</span></a>
+    <a href="#contact"><span class="zh">聯絡</span><span class="en">Contact</span></a>
+  </div>
+  <div class="lang" role="group" aria-label="language">
+    <button type="button" data-set="zh" class="on">中文</button>
+    <button type="button" data-set="en">EN</button>
+  </div>
+</nav>
+
+<header class="stage" id="top">
+  <div class="credit">
+    <h1>MAXSTUDIO<br><span class="zh">睿趣數位行銷工作室</span><span class="en" style="font-size:.5em;letter-spacing:.06em">RUIQU Digital Marketing Studio</span></h1>
+    <p class="sub"><span class="zh">電商廣告素材與 AI 影音產線 · 台中</span><span class="en">AI creative studio for e-commerce ads · Taichung, Taiwan</span></p>
+    <div class="ctable">
+      <div><b><span class="zh">做什麼</span><span class="en">What</span></b><span><span class="zh">廣告素材、產品圖、社群影片、AI 工作流建置</span><span class="en">Ad creative, product imagery, social video, AI workflow setup</span></span></div>
+      <div><b><span class="zh">客戶</span><span class="en">For</span></b><span><span class="zh">台灣與海外的電商品牌、代理商</span><span class="en">E-commerce brands and agencies, Taiwan and abroad</span></span></div>
+      <div><b><span class="zh">方式</span><span class="en">Model</span></b><span><span class="zh">月費制，廣告費由客戶直接付平台</span><span class="en">Monthly retainer; ad spend paid by you to the platform</span></span></div>
+      <div><b><span class="zh">負責人</span><span class="en">Founder</span></b><span>Max</span></div>
+      <div><b><span class="zh">成立</span><span class="en">Est.</span></b><span>2026 · Taichung</span></div>
+    </div>
+  </div>
+
+  <div class="rail" aria-label="recent work">
+    <div class="strip" id="strip">
+      <figure class="poster"><img src="covers/iphone.jpg" alt="" loading="eager"><figcaption><span class="zh">程式寫的 iPhone 廣告</span><span class="en">An iPhone ad rendered in code</span></figcaption></figure>
+      <figure class="poster"><img src="covers/mask.jpg" alt="" loading="lazy"><figcaption><span class="zh">AI 圖假不假，量三個數字</span><span class="en">Three numbers that expose a fake AI image</span></figcaption></figure>
+      <figure class="poster"><img src="covers/clay.jpg" alt="" loading="lazy"><figcaption><span class="zh">一塊黏土都沒捏的黏土動畫</span><span class="en">Claymation without clay</span></figcaption></figure>
+      <figure class="poster"><img src="covers/cut.jpg" alt="" loading="lazy"><figcaption><span class="zh">拆片流程，不用倒帶</span><span class="en">Shot-by-shot breakdown, no rewinding</span></figcaption></figure>
+      <figure class="poster"><img src="covers/team.jpg" alt="" loading="lazy"><figcaption><span class="zh">一整組製作團隊，一個對話框</span><span class="en">A production crew in one chat window</span></figcaption></figure>
+      <figure class="poster"><img src="covers/face.jpg" alt="" loading="lazy"><figcaption><span class="zh">AI 對嘴一看就假，問題在臉</span><span class="en">Why AI lip-sync looks fake</span></figcaption></figure>
+      <figure class="poster"><img src="covers/camera.jpg" alt="" loading="lazy"><figcaption><span class="zh">14 顆鏡頭的運鏡</span><span class="en">Camera moves across 14 shots</span></figcaption></figure>
+      <figure class="poster"><img src="covers/dna.jpg" alt="" loading="lazy"><figcaption><span class="zh">兩段素材，AI 自己接轉場</span><span class="en">Two clips, AI builds the transition</span></figcaption></figure>
+    </div>
+    <div class="railctl">
+      <button type="button" id="prev" aria-label="previous">←</button>
+      <span id="count">1 / 8</span>
+      <button type="button" id="next" aria-label="next">→</button>
+    </div>
+  </div>
+
+  <div class="quote">
+    <div class="zh"><p>「素材用 AI 產線做，好不好用投放數字說。」</p></div>
+    <div class="en"><p>“We build ad creative on an AI pipeline, and let the ad numbers judge it.”</p></div>
+    <small><span class="zh">Instagram @maxstudio.biz 近期內容</span><span class="en">Recent work from Instagram @maxstudio.biz</span></small>
+  </div>
+</header>
+
+<main>
+  <section class="ch" id="services">
+    <div class="no">01</div>
+    <div>
+      <h2><span class="zh">我們做什麼</span><span class="en">What we do</span></h2>
+      <p><span class="zh">四件事，共用同一條產線：研究、生成、檢查、交付。圖片和影片的產品外觀一律對照參考圖，不美化、不重畫。</span><span class="en">Four services on one pipeline: research, generate, check, deliver. Products in every image and video are matched to the reference, never redrawn or “improved”.</span></p>
+      <div class="list">
+        <div class="row">
+          <h3><span class="zh">廣告素材</span><span class="en">Ad creative</span></h3>
+          <p><span class="zh">投放用的靜態圖與短影音。一批同時測幾個切角，每個切角一支自己的底圖，命名分組後交給投放端。</span><span class="en">Static and short-video ad variants. Several angles tested per batch, one base visual per angle, named and grouped for the media buyer.</span></p>
+        </div>
+        <div class="row">
+          <h3><span class="zh">產品圖</span><span class="en">Product imagery</span></h3>
+          <p><span class="zh">官網主圖、情境圖、買家秀風格的評論圖。產品的外型、顏色、包裝、文字鎖定不走樣。</span><span class="en">Hero shots, lifestyle scenes and UGC-style review photos. Shape, colour, packaging and label text stay locked to the real product.</span></p>
+        </div>
+        <div class="row">
+          <h3><span class="zh">社群影片</span><span class="en">Social video</span></h3>
+          <p><span class="zh">Reels 從企劃、口白、剪輯、字幕到上線，每支做兩個開頭版本，看數據再留一個。</span><span class="en">Reels from script and voice-over to edit, subtitles and publishing. Two openings per video; the data picks the keeper.</span></p>
+        </div>
+        <div class="row">
+          <h3><span class="zh">AI 工作流建置</span><span class="en">AI workflow setup</span></h3>
+          <p><span class="zh">把生成、剪輯、字幕、發布串成一條你的團隊自己能跑的線，附操作手冊和教學。</span><span class="en">Generation, editing, subtitling and publishing wired into one pipeline your team runs itself, with a manual and training.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="results">
+    <div class="no">02</div>
+    <div>
+      <h2><span class="zh">數字</span><span class="en">Results</span></h2>
+      <p><span class="zh">一個生鮮水果電商帳號，三個月的投放結果。素材、切角、分組是我們做的，投放由客戶的投放端執行。</span><span class="en">One fresh-fruit e-commerce account over three months. Creative, angles and grouping were ours; media buying was run by the client’s buyer.</span></p>
+      <div class="scroll">
+      <table>
+        <thead><tr><th><span class="zh">項目</span><span class="en">Metric</span></th><th><span class="zh">數字</span><span class="en">Value</span></th><th><span class="zh">說明</span><span class="en">Note</span></th></tr></thead>
+        <tbody>
+          <tr><td><span class="zh">期間</span><span class="en">Period</span></td><td class="num">2026-06-19 → 09-18</td><td><span class="zh">三個月</span><span class="en">Three months</span></td></tr>
+          <tr><td><span class="zh">廣告花費</span><span class="en">Ad spend</span></td><td class="num">NT$444,001</td><td><span class="zh">客戶直接付給 Meta</span><span class="en">Paid by the client to Meta</span></td></tr>
+          <tr><td><span class="zh">歸因營業額</span><span class="en">Attributed revenue</span></td><td class="num">≈ NT$1,780,000</td><td><span class="zh">花費 × ROAS 回推</span><span class="en">Back-calculated from spend × ROAS</span></td></tr>
+          <tr><td>ROAS</td><td class="num">4.01</td><td><span class="zh">Meta 歸因，點擊 7 天、瀏覽 1 天</span><span class="en">Meta attribution, 7-day click / 1-day view</span></td></tr>
+          <tr><td><span class="zh">購買</span><span class="en">Purchases</span></td><td class="num">989</td><td><span class="zh">客單價約 NT$1,800</span><span class="en">Average order ≈ NT$1,800</span></td></tr>
+          <tr><td><span class="zh">現役素材</span><span class="en">Live creatives</span></td><td class="num">85</td><td><span class="zh">37 個品項組合，曝光 113 萬，CTR 4.69%</span><span class="en">37 product packs, 1.13M impressions, 4.69% CTR</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note"><span class="zh">數字來自 Meta 廣告後台的最後一次抓取（2026-09-19），不是店家的實際營收。帳號為台灣生鮮水果電商，應客戶要求匿名。其他帳號合計：4 個廣告帳號、110 支上線素材、700 多張官網產品圖。</span><span class="en">Figures are from the last Meta Ads Manager pull (2026-09-19), not the store’s own books. The account is a Taiwanese fresh-fruit brand, anonymised at the client’s request. Across all accounts: 4 ad accounts, 110 creatives launched, 700+ product images for online stores.</span></p>
+      <p><span class="zh">不是每個帳號都贏。一個香氛案收在 ROAS 0.59，自家服飾的實驗 0 購買。這兩個也在案例庫裡，連漏斗哪一段掉的都寫清楚，談合作時可以一起看。</span><span class="en">Not every account won. A fragrance brand closed at 0.59 ROAS and our own apparel test got zero purchases. Both are in the case library with the exact funnel stage that broke, and we are happy to walk through them.</span></p>
+    </div>
+  </section>
+
+  <section class="ch" id="process">
+    <div class="no">03</div>
+    <div>
+      <h2><span class="zh">怎麼合作</span><span class="en">How we work</span></h2>
+      <div class="steps">
+        <div class="row"><h3><span class="zh">研究</span><span class="en">Research</span></h3><p><span class="zh">先看真實評論和競品廣告，定一個受眾、一個訴求，才開始做圖。</span><span class="en">Real reviews and competitor ads first. One audience, one promise, before any image is made.</span></p></div>
+        <div class="row"><h3><span class="zh">素材</span><span class="en">Creative</span></h3><p><span class="zh">每個訴求一支自己的底圖，不共用。產品外觀對照參考圖，字用程式疊、原圖保留。</span><span class="en">One base visual per angle, never shared. Product matched to reference; text overlaid in code so the master stays clean.</span></p></div>
+        <div class="row"><h3><span class="zh">上線</span><span class="en">Launch</span></h3><p><span class="zh">命名、分組、上雲，交給你的投放端。我們不代操廣告帳號，資產全部在你名下。</span><span class="en">Named, grouped, uploaded, handed to your media buyer. Pages, ad accounts, pixels and lists stay under your business.</span></p></div>
+        <div class="row"><h3><span class="zh">判讀</span><span class="en">Review</span></h3><p><span class="zh">用 14 天的窗口看，先找漏斗哪一段變貴，再決定改 offer、改素材還是改頁面。</span><span class="en">Read results in 14-day windows, find which funnel stage got expensive, then decide: offer, creative or landing page.</span></p></div>
+      </div>
+      <p class="note"><span class="zh">月費制。服務費和廣告費分開：廣告費由你直接付給平台。</span><span class="en">Monthly retainer. Our fee and ad spend are separate; you pay the platform directly.</span></p>
+    </div>
+  </section>
+
+  <section class="ch" id="about">
+    <div class="no">04</div>
+    <div>
+      <h2><span class="zh">關於</span><span class="en">About</span></h2>
+      <p><span class="zh">MAXSTUDIO 由 Max 經營，2026 年在台中登記為睿趣數位行銷工作室。日常在 Instagram @maxstudio.biz 記錄 AI 影音的做法，一萬多人追蹤；另外經營社群 A&amp;I Utopia，把拆片流程、剪輯外掛和模板分享給會員。</span><span class="en">MAXSTUDIO is run by Max and was registered in Taichung, Taiwan in 2026 as RUIQU Digital Marketing Studio. Max documents AI video production methods on Instagram (@maxstudio.biz, 10k+ followers) and runs the A&amp;I Utopia community, where shot-breakdown workflows, editing plugins and templates are shared with members.</span></p>
+      <p><span class="zh">主要工具：Higgsfield、Claude、After Effects、DaVinci Resolve。產線裡的檢查步驟（閃格、字幕對齊、產品比對）都寫成程式，交付前自動跑。</span><span class="en">Core tools: Higgsfield, Claude, After Effects, DaVinci Resolve. Pipeline checks (flash frames, subtitle timing, product match) are scripted and run before every delivery.</span></p>
+    </div>
+  </section>
+
+  <section class="ch" id="contact">
+    <div class="no">05</div>
+    <div>
+      <h2><span class="zh">聯絡</span><span class="en">Contact</span></h2>
+      <div class="contact">
+        <div><b>Email</b><a href="mailto:max@maxstudio.biz">max@maxstudio.biz</a></div>
+        <div><b>Instagram</b><a href="https://www.instagram.com/maxstudio.biz/" target="_blank" rel="noopener">@maxstudio.biz</a></div>
+        <div><b><span class="zh">社群</span><span class="en">Community</span></b><a href="https://www.skool.com/ai-utopia-2694/about" target="_blank" rel="noopener">A&amp;I Utopia on Skool</a></div>
+        <div><b>GitHub</b><a href="https://github.com/Max-aiutopia" target="_blank" rel="noopener">Max-aiutopia</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span><span class="zh">睿趣數位行銷工作室</span><span class="en">RUIQU Digital Marketing Studio</span></span>
+  <span><span class="zh">統一編號 61059837</span><span class="en">Tax ID 61059837</span></span>
+  <span><span class="zh">臺中市，台灣</span><span class="en">Taichung, Taiwan</span></span>
+  <span>© 2026 MAXSTUDIO</span>
+</footer>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  function setLang(l){html.setAttribute('data-lang',l);html.setAttribute('lang',l==='zh'?'zh-Hant':'en');
+    document.querySelectorAll('.lang button').forEach(function(b){b.classList.toggle('on',b.dataset.set===l)});
+    try{localStorage.setItem('ms-lang',l)}catch(e){}
+    document.title=l==='zh'?'MAXSTUDIO｜睿趣數位行銷工作室 · 電商廣告素材與 AI 影音產線':'MAXSTUDIO — AI creative studio for e-commerce ads · Taichung, Taiwan';}
+  var saved=null;try{saved=localStorage.getItem('ms-lang')}catch(e){}
+  if(!saved){saved=(navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en'}
+  setLang(saved);
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+
+  var strip=document.getElementById('strip'),posters=[].slice.call(strip.querySelectorAll('.poster')),count=document.getElementById('count');
+  function update(){var c=strip.scrollLeft+strip.clientWidth/2,best=0,bd=1e9;
+    posters.forEach(function(p,i){var pc=p.offsetLeft+p.offsetWidth/2,d=pc-c,ad=Math.abs(d);var s=Math.max(.78,1-ad/1400);var r=Math.max(-22,Math.min(22,-d/22));
+      p.style.transform='scale('+s.toFixed(3)+') rotateY('+r.toFixed(1)+'deg)';p.style.opacity=Math.max(.35,1-ad/700).toFixed(2);
+      if(ad<bd){bd=ad;best=i}});
+    posters.forEach(function(p,i){p.classList.toggle('is-center',i===best)});count.textContent=(best+1)+' / '+posters.length;}
+  function go(i){i=Math.max(0,Math.min(posters.length-1,i));var p=posters[i];strip.scrollTo({left:p.offsetLeft+p.offsetWidth/2-strip.clientWidth/2,behavior:'smooth'})}
+  function cur(){return parseInt(count.textContent,10)-1}
+  strip.addEventListener('scroll',function(){requestAnimationFrame(update)});window.addEventListener('resize',update);
+  document.getElementById('prev').addEventListener('click',function(){go(cur()-1)});
+  document.getElementById('next').addEventListener('click',function(){go(cur()+1)});
+  posters.forEach(function(p,i){p.addEventListener('click',function(){go(i)})});
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(cur()-1);if(e.key==='ArrowRight')go(cur()+1)});
+  window.addEventListener('load',function(){go(0);update()});update();
+
+  var tabs=[].slice.call(document.querySelectorAll('.tabs a')),secs=tabs.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function nav(){var y=window.scrollY+140,on=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)on=i});tabs.forEach(function(a,i){a.classList.toggle('on',i===on)})}
+  window.addEventListener('scroll',nav);nav();
+})();
+</script>
+</body>
+</html>
